@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .main {
+        margin: 2% 8%;
+      }
+      #abc {
+        display: flex;
+        width: 100%;
+      }
+      .part {
+        display: flex;
+        justify-content: space-around;
+      }
+     
+      #gy {
+        width: 6%;
+        height: 6vh;
+        margin-top: 2.5%;
+      }
+      #Maindiv {
+        width: 55%;
+        height: 90vh;
+        margin: 2% 20%;
+        border-radius: 25px;
+      }      
+      #FirstPage {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        gap: 5%;
+        align-items: center;
+        justify-content: center;
+        border-radius: 25px;
+      }
+      #SecondPage{
+        height: 100%;
+        width: 100%;
+        gap: 5%;
+        border-radius: 25px;
+      }
+      #SecondPage #Button{
+        /* position: fixed; */
+        margin: 0.5%;
+      }
+      #FirstPage button {
+        padding: 15px;
+        width: 13%;
+        background-color: red;
+        color: white;
+        font-size: 25px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+      #gy {
+        position: absolute;
+        left: 22%;
+        top: 10%;
+      }
+     #img1,#img2{
+        width: 100%;
+       }
+      #final{
+        display: flex;
+              font-size: 22px;
+              justify-content: space-between;
+              width: 100%;
+      }
+
+
+
+/* Choice Buttons */
+.choice-btn, .restart-btn  ,.back-btn{
+    color: #fff ;
+    border: none ;
+    width: 20% ;
+    height: 5vh ;
+    background-color: red ;
+    border-radius: 20px ;
+    cursor: pointer ;
+    transition: all 0.3s ease;
+}
+
+.choice-btn:hover ,.back-btn:hover , .restart-btn:hover  {
+      background-color: #a51c1c ;
+    /* transform: scale(1.05); */
+}
+
+.last{
+        width: 100%;
+        margin-top: 20%;
+      }
+ .last #Button{
+          width: 18%;
+        } 
+
+
+/* NEW SCORES SECTION - BELOW BUTTONS */
+.score-board {
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+    width: 100%;
+}
+
+.score-item {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#playerScore {
+    color: #28a745;
+}
+
+#computerScore {
+    color: #dc3545;
+}
+#drawScore{
+  color: #3d35dc;
+}
+
+
+/* Result Text */
+#resultText {
+    color: red;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+
+
+      @media(max-width:750px){
+        
+        #Maindiv{
+          width: 94%;
+           margin: 5% 3%;
+           height: 87vh;
+        }
+        #final{
+          display: flex;
+          justify-content: space-around;
+          width: 100%;
+          gap: 7%;
+        }
+        #gy{
+          width: 15%;
+          top: 6%;
+          left: 13%;
+        }
+        #FirstPage{
+         flex-wrap: wrap;
+         gap: 1px;
+             width: 100%;                                               
+        }
+        
+        #FirstPage #Button{
+          width: 35%;
+          margin-top: 80%;
+        }
+        #reset{ padding: 6px;
+          font-size: 30px;
+          margin-top: -185% ;
+        }
+       .last #Button{
+          width: 25%;
+        } 
+        #head{      
+          font-size: 20px;
+        }
+        #SecondPage{
+          font-size: 15px;
+        }
+        #re{
+          font-size: 18px;
+          margin-top: 1%;
+        }
+        #first{
+          font-size: 18px;
+        }
+        #fi{
+          font-size: 18px;
+        }      
+        #sec{
+          font-size: 18px;
+          margin-left: -35%;
+        }
+       .last{
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: -13%;
+        justify-content: center;
+        margin-top: 30%;
+        gap: 10px;
+        width: 23em;       
+       }
+      #para{
+        margin-top:-15% ;
+      }
+        .choice-btn, .restart-btn, .back-btn {
+        width: 45% ;
+        margin: 3px ;
+    }
+    
+    .score-board {
+        flex-direction: row;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 15px;
+        margin-left: -5%;
+        font-size: 20px;
+    }
+      }
+    </style>
+  </head>
+  <body style="font-size: 18px">
+    <div id="Maindiv" style="background-color: #bebebe57; border: 1px solid #ff2f00; box-shadow: 1px 1px 15px red;">
+      <img src="moon_or.png" id="gy" onclick="toggleImage() " />
+      <!-- ============================Frist Page Start=========================== -->
+      <div id="FirstPage">
+       
+        <button onclick="SecondPageOpen()" id="Button" >PLAY</button>
+        <h1 id="reset">
+          Rock Paper Scissor<br />
+          with computer
+        </h1>
+      </div>
+      <!-- ============================Frist Page End=========================== -->
+      <!-- ============================Second Page Start=========================== -->
+      <div style="display: none" id="SecondPage">
+        <div class="part">
+          <h1
+            style="text-align: center; font-weight: bolder; color: #1c1a4f"
+            id="head"
+          >
+            Rock Paper Scissor with Computer
+          </h1>
+
+          
+        </div>
+        <h2 style="text-align: center; color: red;" id="re">RESET THE TOUR</h2>
+        <div class="main">
+          <div
+            id="final"
+          >
+            <p id="first"></p>
+            <p id="fi"></p>
+          </div>
+          <div class="" style="padding-left: 27%; width: 100%;">
+            <p id="sec" style="color: red; padding-left:10% ; font-size: 20px;"></p>
+          </div>
+
+          <div class="result-section">
+            <p id="resultText"></p>
+          </div>
+
+          <div id="abc" style="gap: 35px; margin-left: 17%; width: 70%; display: flex; justify-content: center;">
+            <img src="" id="img2" style="width: 50%;" />
+            <p id="para" style="padding-top: 50px"></p>
+            <img src="" id="img1" style="width: 50%;" />
+          </div>
+          <div class="last" >
+            <button
+              id="Button"
+              onclick="Click('Rock')"
+             class="choice-btn"
+            >
+              Rock
+            </button>
+            <button
+              id="Button"
+              onclick="Click('Paper')"
+              class="choice-btn"
+            >
+              Paper
+            </button>
+            <button
+              id="Button"
+              onclick="Click('Scissor')"
+              class="choice-btn"
+            >
+              Scissor
+            </button>
+            <button
+              id="Button"
+              class="restart-btn"
+              onclick="resetGame()"
+            >
+              Restart
+            </button>
+            <button
+              id="Button"
+              class="back-btn"
+              onclick="FirstPageOpen()"
+            >
+              Back
+            </button>
+          </div>
+
+          <div class="score-board">
+            <div class="score-item">
+              <span id="playerScore">Player: 0</span>
+            </div>
+            <div class="score-item">
+              <span id="computerScore">Computer:0</span>
+            </div>
+            <div class="score-item">
+              <span id="drawScore">Draw:0</span>
+            </div>
+          </div>
+        </div>
+
+          
+
+      </div>
+
+
+      
+      <!-- ============================Second Page End=========================== -->
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
